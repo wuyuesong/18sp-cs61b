@@ -55,6 +55,22 @@ public class Planet {
         double ans = F*dy/r;
         return ans;
     }
+    public double calcNetForceExertedByX(Planet[] allPlanets) {
+        double ans = 0.0;
+        for(Planet p: allPlanets){
+            if(this.equals(p)) continue;
+            ans += calcForceExertedByX(p);
+        }
+        return ans;
+    }
+    public double calcNetForceExertedByY(Planet[] allPlanets) {
+        double ans = 0.0;
+        for(Planet p: allPlanets){
+            if(this.equals(p)) continue;
+            ans += calcForceExertedByY(p);
+        }
+        return ans;
+    }
     public void update(double dt,double fX,double fY) {
         double aX,aY;
         aX = fX/mass;

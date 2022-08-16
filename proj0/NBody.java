@@ -31,16 +31,13 @@ public class NBody {
             double[] xForces = new double[n];
             double[] yForces = new double[n];
             for(int i=0;i<planets.length;i++){
-                for(int j=0;j<planets.length;j++){
-                    if(i == j) continue;
-                    xForces[i] += planets[i].calcForceExertedByX(planets[j]);
-                    yForces[i] += planets[i].calcForceExertedByY(planets[j]);
-                }
-                planets[i].update(dt, xForces[i], yForces[i]);
+                xForces[i] = planets[i].calcNetForceExertedByX(planets);
+                yForces[i] = planets[i].calcNetForceExertedByY(planets);
             }
             StdDraw.clear();
             StdDraw.picture(0, 0, imageToDraw);
             for(int i=0;i<planets.length;i++){
+                planets[i].update(dt, xForces[i], yForces[i]);
                 planets[i].draw();
             }
             StdDraw.show();
