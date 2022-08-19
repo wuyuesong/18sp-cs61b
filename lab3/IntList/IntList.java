@@ -127,13 +127,20 @@ public class IntList {
      */
     public static IntList reverse(IntList A){
         if(A == null) return null;
+        IntList ptr = A;
+        IntList ptr2 = A;
         IntList res = new IntList(A.first,null);
         A = A.rest;
         while(A != null){
             res = new IntList(A.first,res);
             A = A.rest;
         }
-        return res;
+        while(ptr != null){
+            ptr.first = res.first;
+            ptr = ptr.rest;
+            res = res.rest;
+        }
+        return ptr2;
     }
 
 
