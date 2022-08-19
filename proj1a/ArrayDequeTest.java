@@ -108,6 +108,20 @@ public class ArrayDequeTest {
 		assertEquals((long)lld1.get(100), (long)899);
 	}
 
+	@Test
+	public void test3() {
+		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+		//System.out.println(lld1.items.length);
+		for(int i=0;i<1000;i++){
+			lld1.addFirst(i);
+		}
+		for(int i=0;i<100;i++){
+			lld1.removeLast();
+		}
+		assertEquals(lld1.size(),900);
+		assertEquals((long)lld1.get(100), (long)899);
+	}
+
 //	public static void main(String[] args) {
 //		System.out.println("Running tests.\n");
 //		addIsEmptySizeTest();
