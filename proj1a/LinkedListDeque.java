@@ -4,11 +4,13 @@ public class LinkedListDeque<T> {
 
     public void addFirst(T item){
         sentinel.next = new IntNode(item,sentinel,sentinel.next);
+        sentinel.next.next = sentinel.next;
         size += 1;
     }
 
     public void addLast(T item){
         sentinel.prev = new IntNode(item,sentinel.prev,sentinel);
+        sentinel.prev.prev.next = sentinel.prev;
         size += 1;
     }
 
@@ -36,7 +38,7 @@ public class LinkedListDeque<T> {
         IntNode p = sentinel.next;
         while(p != sentinel) {
             System.out.print(p.item);
-            System.out.println(" ");
+            System.out.print(" ");
             p = p.next;
         }
     }
@@ -63,6 +65,7 @@ public class LinkedListDeque<T> {
         IntNode p = sentinel.next;
         while(n!=index){
             p = p.next;
+            n += 1;
         }
         return (T)p.item;
     }

@@ -1,3 +1,7 @@
+import org.junit.Test;
+import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
 /** Performs some basic linked list tests. */
 public class ArrayDequeTest {
 	
@@ -82,10 +86,31 @@ public class ArrayDequeTest {
 		printTestStatus(passed);
 
 	}
-
-	public static void main(String[] args) {
-		System.out.println("Running tests.\n");
-		addIsEmptySizeTest();
-		addRemoveTest();
+	@Test
+	public void Test1() {
+		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+		//System.out.println(lld1.items.length);
+		for(int i=0;i<1000;i++){
+			lld1.addLast(i);
+		}
+		assertEquals(lld1.size(),1000);
+		assertEquals((long)lld1.get(100), (long)100);
 	}
+
+	@Test
+	public void Test2() {
+		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+		//System.out.println(lld1.items.length);
+		for(int i=0;i<1000;i++){
+			lld1.addLast(i);
+		}
+		assertEquals(lld1.size(),1000);
+		assertEquals((long)lld1.get(100), (long)100);
+	}
+
+//	public static void main(String[] args) {
+//		System.out.println("Running tests.\n");
+//		addIsEmptySizeTest();
+//		addRemoveTest();
+//	}
 } 
