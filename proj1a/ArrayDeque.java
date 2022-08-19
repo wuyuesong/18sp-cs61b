@@ -15,19 +15,25 @@ public class ArrayDeque <T>{
 
     private void resize(int capacity){
         T[] a = (T [])new Object[capacity];
-        System.arraycopy(items, 0, a,0, items.length);
+        for(int i=0;i<size();i++){
+            a[i] = items[(first + i)%items.length];
+        }
+        first = 0;
+        last = first + size();
         items = a;
     }
 
     public void addFirst(T item){
-        if (size() == items.length){
-            resize(items.length * RFACTOR);
-        }
+
         first -= 1;
         if(first == -1){
             first = items.length - 1;
         }
+        items[first] = item;
         size += 1;
+        if (size() == items.length){
+            resize(items.length * RFACTOR);
+        }
     }
 
     public void addLast(T item){

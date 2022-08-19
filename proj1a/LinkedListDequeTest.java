@@ -98,16 +98,16 @@ public class LinkedListDequeTest {
 		assertEquals((long)lld1.get(100), (long)100);
 	}
 
-//	@Test
-//	public void Test2() {
-//		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
-//		//System.out.println(lld1.items.length);
-//		for(int i=0;i<1000;i++){
-//			lld1.addLast(i);
-//		}
-//		assertEquals(lld1.size(),1000);
-//		assertEquals((long)lld1.get(100), (long)100);
-//	}
+	@Test
+	public void Test2() {
+		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
+		//System.out.println(lld1.items.length);
+		for(int i=0;i<1000;i++){
+			lld1.addFirst(i);
+		}
+		assertEquals(lld1.size(),1000);
+		assertEquals((long)lld1.get(100), (long)899);
+	}
 
 
 //	public static void main(String[] args) {

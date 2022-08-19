@@ -4,7 +4,7 @@ public class LinkedListDeque<T> {
 
     public void addFirst(T item){
         sentinel.next = new IntNode(item,sentinel,sentinel.next);
-        sentinel.next.next = sentinel.next;
+        sentinel.next.next.prev = sentinel.next;
         size += 1;
     }
 

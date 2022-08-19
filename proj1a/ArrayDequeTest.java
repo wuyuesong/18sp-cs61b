@@ -102,10 +102,10 @@ public class ArrayDequeTest {
 		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
 		//System.out.println(lld1.items.length);
 		for(int i=0;i<1000;i++){
-			lld1.addLast(i);
+			lld1.addFirst(i);
 		}
 		assertEquals(lld1.size(),1000);
-		assertEquals((long)lld1.get(100), (long)100);
+		assertEquals((long)lld1.get(100), (long)899);
 	}
 
 //	public static void main(String[] args) {
