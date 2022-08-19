@@ -35,7 +35,8 @@ public class LinkedListDeque<T> {
         if(isEmpty()) return;
         IntNode p = sentinel.next;
         while(p != sentinel) {
-            System.out.println(p.item);
+            System.out.print(p.item);
+            System.out.println(" ");
             p = p.next;
         }
     }
