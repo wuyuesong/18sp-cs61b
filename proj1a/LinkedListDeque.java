@@ -67,7 +67,7 @@ public class LinkedListDeque<T> {
         return (T)p.item;
     }
 
-    private T getRecursive(int index) {
+    public T getRecursive(int index) {
         if(index >= size()) return null;
         IntNode p = sentinel.next;
 
