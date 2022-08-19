@@ -83,11 +83,14 @@ public class ArrayDeque<T> {
             return null;
         }
         last--;
-        T res = (T) items[last];
         if (last == -1) {
             last = items.length - 1;
         }
+        T res = (T) items[last];
         size--;
+        if((double) size / (double) items.length < 0.25) {
+            resize(items.length / RFACTOR);
+        }
         return res;
     }
 
@@ -99,17 +102,5 @@ public class ArrayDeque<T> {
         return (T) items[(index + first) % items.length];
     }
 
-//    public T getRecursive(int index) {
-//        if(index >= size()) return null;
-//        IntNode p = sentinel.next;
-//
-//        return getRecursive(index, p);
-//    }
-//    public T getRecursive(int index, IntNode p) {
-//        if(index == 0) {
-//            return (T)p.item;
-//        } else {
-//            return getRecursive(index - 1, p.next);
-//        }
-//    }
+
 }
