@@ -73,7 +73,7 @@ public class LinkedListDeque<T> {
 
         return getRecursive(index, p);
     }
-    public T getRecursive(int index, IntNode p) {
+    private T getRecursive(int index, IntNode p) {
         if(index == 0) {
             return (T)p.item;
         } else {
