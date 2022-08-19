@@ -1,11 +1,11 @@
 import org.hamcrest.Factory;
 
 public class ArrayDeque <T>{
-    T[] list;
+    private T[] list;
     private int size;
     private int first;
     private int last;
-    public static final int RFACTOR = 2;
+    private static final int RFACTOR = 2;
     public ArrayDeque(){
         list = (T []) new Object[8];
         size = 0;
