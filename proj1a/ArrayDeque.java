@@ -82,8 +82,8 @@ public class ArrayDeque<T> {
         if (isEmpty()) {
             return null;
         }
-        T res = (T) items[last];
         last--;
+        T res = (T) items[last];
         if (last == -1) {
             last = items.length - 1;
         }
