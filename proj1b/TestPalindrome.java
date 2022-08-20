@@ -17,11 +17,18 @@ public class TestPalindrome {
     }
 
     @Test
-    public void TestPalindrome() {
+    public void testIsPalindrome() {
         assertFalse(palindrome.isPalindrome("persiflage"));
         assertTrue(palindrome.isPalindrome("abccba"));
         assertTrue(palindrome.isPalindrome("abcba"));
 
+        OffByOne obo = new OffByOne();
+        assertTrue(palindrome.isPalindrome("detrude", obo));
+        assertFalse(palindrome.isPalindrome("abccba", obo));
+    }
+
+    @Test
+    public void testIsOffByOnePalindrome() {
         OffByOne obo = new OffByOne();
         assertTrue(palindrome.isPalindrome("detrude", obo));
         assertFalse(palindrome.isPalindrome("abccba", obo));
