@@ -21,5 +21,9 @@ public class TestPalindrome {
         assertFalse(palindrome.isPalindrome("persiflage"));
         assertTrue(palindrome.isPalindrome("abccba"));
         assertTrue(palindrome.isPalindrome("abcba"));
+
+        OffByOne obo = new OffByOne();
+        assertTrue(palindrome.isPalindrome("detrude", obo));
+        assertFalse(palindrome.isPalindrome("abccba", obo));
     }
 }
