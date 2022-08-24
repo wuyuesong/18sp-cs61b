@@ -193,9 +193,9 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
         size --;
         sink(1);
         contents[size+1] = null;
-        if ((size > 0) && (size == (contents.length - 1) / 4)) {
-            resize(contents.length / 2);
-        }
+//        if ((size > 0) && (size == (contents.length - 1) / 4)) {
+//            resize(contents.length / 2);
+//        }
         return min;
     }
 
