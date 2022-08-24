@@ -76,6 +76,12 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
     private void swap(int index1, int index2) {
         Node node1 = getNode(index1);
         Node node2 = getNode(index2);
+//        System.out.println(index1);
+//        System.out.println(index2);
+//        System.out.println(size);
+//        System.out.println(node1.item());
+//        System.out.println(node2.item());
+//        System.out.println(size);
         contents[index1] = node2;
         contents[index2] = node1;
     }
@@ -150,6 +156,11 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
 
         /* TODO: Your code here! */
         contents[++size] = new Node(item, priority);
+//        System.out.println("size " + size);
+//        for(int i = 1; i <= size;i ++) {
+//            System.out.printf("%s", getNode(i).myItem);
+//        }
+//        System.out.println("");
         swim(size);
     }
 
@@ -175,7 +186,17 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
     @Override
     public T removeMin() {
         /* TODO: Your code here! */
-        return null;
+//        System.out.println("debug");
+        T min = contents[1].item();
+//        System.out.println(size);
+        swap(1, size);
+        size --;
+        sink(1);
+        contents[size+1] = null;
+        if ((size > 0) && (size == (contents.length - 1) / 4)) {
+            resize(contents.length / 2);
+        }
+        return min;
     }
 
     /**
@@ -198,6 +219,11 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
     @Override
     public void changePriority(T item, double priority) {
         /* TODO: Your code here! */
+        for(int i = 1; i <= size; i++) {
+            if(item.equals(contents[i].item())) {
+                contents[i].myPriority = priority;
+            }
+        }
         return;
     }
 
@@ -273,7 +299,10 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
     /** Helper function to resize the backing array when necessary. */
     private void resize(int capacity) {
         Node[] temp = new ArrayHeap.Node[capacity];
-        for (int i = 1; i < this.contents.length; i++) {
+//        for (int i = 1; i < this.contents.length; i++) {
+//            temp[i] = this.contents[i];
+//        }
+        for (int i = 1; i <= size; i++) {
             temp[i] = this.contents[i];
         }
         this.contents = temp;
